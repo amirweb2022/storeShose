@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/build/tailwind.css" />
+    <title>store-shose</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <header
+      class="w-full py-2 sticky top-0 z-10 bg-red-400 text-white flex justify-between items-center md:bg-red-400 md:px-2"
+    >
+      <!-- ul list -->
+      <ul
+        class="flex justify-center w-full text-sm items-center md:flex md:justify-start md:text-base"
+      >
+        <!-- list-item -->
+        <li class="ml-2 p-2">
+          <!-- link-list-item -->
+          <a href="/public/index.html">Home</a>
+        </li>
+        <!-- list-item -->
+        <li class="ml-2 p-2">
+          <!-- link-list-item -->
+          <a href="/public/products.html">Products</a>
+        </li>
+        <!-- list-item -->
+        <li class="ml-2 p-2">
+          <!-- link-list-item -->
+          <a href="#">Blog</a>
+        </li>
+        <!-- list-item -->
+        <li class="ml-2 p-2">
+          <!-- link-list-item -->
+          <a href="#">About us</a>
+        </li>
+      </ul>
+      <a href="/public/basket.html" class="mx-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 md:h-9 md:w-9"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+          />
+        </svg>
+      </a>
+    </header>
+    <!-- section basket -->
+    <div class="flex justify-center items-center mt-4 md:mt-6" id="empty">
+      <!-- title-product -->
+      <h1 class="text-xl font-bold md:text-2xl lg:text-3xl">Basket</h1>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 ml-2 md:h-9 md:w-9"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    </div>
+    <!-- section cart product -->
+    <div
+      class="px-3 flex justify-center items-center flex-col gap-y-2 w-ful mt-4 py-3 bg-stone-100 md:mx-auto"
+    id="parent-template-card">
+  </div>
+    <!-- footer -->
+    <footer
+      class="w-full bg-[#FAFAFA] flex justify-center absolute bottom-0 flex-col items-center py-8 md:flex-row"
+    >
+      <div class="p-2 text-gray-400">New Balance family of brands</div>
+      <div class="flex ml-2 flex-wrap justify-center items-center">
+        <div class="w-28 ml-3">
+          <img src="/assest/image/brine-logo.svg" alt="" />
+        </div>
+        <div class="w-28 ml-4">
+          <img src="/assest/image/teamsports-logo.svg" alt="" />
+        </div>
+        <div class="w-28 ml-3">
+          <img src="/assest/image/warror.svg" alt="" />
+        </div>
+      </div>
+    </footer>
+    <div id="template-card" class="hidden">
+      <!-- box-cart -->
+      <div
+        class="bg-stone-50 rounded-lg px-3 py-3 shadow-md flex justify-center w-full items-center md:w-3/4 lg:w-1/2"
+      id="basket-item-__ID__">
+        <!-- image-cart -->
+        <div class="w-20 mr-auto md:w-44 lg:w-52">
+          <img src="__IMAGE__" alt="" />
+        </div>
+        <!-- title-price-product -->
+        <div
+          class="flex h-full ml-4 md:w-full mr-auto justify-between flex-col items-start"
+        >
+          <!-- title -->
+          <div>
+            <h3 class="text-xs text-slate-700 md:text-lg">
+              __TITLE__
+            </h3>
+          </div>
+          <!-- price -->
+          <div>
+            <p class="text-sm text-green-500 mt-2 md:text-base">$__PRICE__</p>
+          </div>
+        </div>
+        <!-- increace-clear -->
+        <div class="h-full flex flex-col items-end">
+          <!-- icon-clear -->
+          <button
+            type="button"
+            class="text-red-400 md:relative md:bottom-2 lg:bottom-4"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <!-- increace -->
+          <div class="flex justify-end items-end gap-x-2 mt-4">
+            <!-- negative -->
+            <button type="button"
+              class="bg-red-100 mb-1 text-red-400 rounded-full"
+            onclick="decreace(__ID__)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <!-- number -->
+            <div class="border border-red-400 rounded-sm px-1 py-1" id="qty___ID__">__QTY__</div>
+            <!-- increace-icon -->
+            <button type="button"
+              class="bg-gray-300 mb-1 text-slate-800 rounded-full"
+            onclick="increace(__ID__)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/utils/cookie.js"></script>
+    <script src="/Models/product.js"></script>
+    <script src="/db/ProductDB.js"></script>
+    <script src="/db/BasketDB.js"></script>
+    <script src="/handler/handlerProduct.js"></script>
+    <script src="/src/js/main.js"></script>
+    <script src="/contrillers/basketCtrl.js"></script>
+  </body>
+</html>
